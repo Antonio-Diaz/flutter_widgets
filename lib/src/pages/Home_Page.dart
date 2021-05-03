@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_widgets/src/providers/menu_providers.dart';
+import 'package:flutter_widgets/src/util/icon_string_util.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key key}) : super(key: key);
@@ -35,10 +36,7 @@ class HomePage extends StatelessWidget {
       final widgetTemp = ListTile(
         title: Text(element['texto']),
         subtitle: Text(element['texto']),
-        leading: Icon(
-          Icons.emoji_objects_outlined,
-          color: Colors.blue,
-        ),
+        leading: getIcons(element['icon']),
         trailing: Icon(
           Icons.arrow_drop_down_sharp,
           color: Colors.blue,
