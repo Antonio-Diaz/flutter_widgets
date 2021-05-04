@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import 'package:flutter_widgets/src/pages/Alert_page.dart';
 import 'package:flutter_widgets/src/providers/menu_providers.dart';
 import 'package:flutter_widgets/src/util/icon_string_util.dart';
 
@@ -23,13 +25,13 @@ class HomePage extends StatelessWidget {
       builder: (context, AsyncSnapshot<List<dynamic>> snapshot) {
         print(snapshot.data);
         return ListView(
-          children: _createItems(snapshot.data),
+          children: _createItems(snapshot.data, context),
         );
       },
     );
   }
 
-  List<Widget> _createItems(List<dynamic> data) {
+  List<Widget> _createItems(List<dynamic> data, BuildContext context) {
     final List<Widget> options = [];
 
     data.forEach((element) {
@@ -41,7 +43,10 @@ class HomePage extends StatelessWidget {
           Icons.arrow_drop_down_sharp,
           color: Colors.blue,
         ),
-        onTap: () {},
+        onTap: () {
+          final route = MaterialPageRoute(builder: (context) => AlertPage());
+          Navigator.push(context, route);
+        },
       );
 
       options..add(widgetTemp)..add(Divider());
