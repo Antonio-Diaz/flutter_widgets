@@ -20,10 +20,8 @@ class HomePage extends StatelessWidget {
   Widget _listView() {
     return FutureBuilder(
       future: menuProvider.loadData(),
-/*       initialData: [],
- */
+      // initialData: [],
       builder: (context, AsyncSnapshot<List<dynamic>> snapshot) {
-        print(snapshot.data);
         return ListView(
           children: _createItems(snapshot.data, context),
         );
@@ -44,8 +42,7 @@ class HomePage extends StatelessWidget {
           color: Colors.blue,
         ),
         onTap: () {
-          final route = MaterialPageRoute(builder: (context) => AlertPage());
-          Navigator.push(context, route);
+          Navigator.pushNamed(context, element['ruta']);
         },
       );
 
